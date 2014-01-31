@@ -1,0 +1,42 @@
+extends layout
+
+block content
+    div(class='login row')
+        div(class='welcome row') Войдите
+        div(class='row')
+            div(class='small-10 medium-6 large-4 small-offset-1 medium-offset-3 large-offset-4 columns text-center ')
+                label Логин
+                input(type='text', placeholder='Логин')
+                label Пароль
+                input(type='password', placeholder='Пароль')
+                a(href='#', class='button') Войти
+        div(class='row text-center')
+            span Еще нет аккаунта?
+            a(class='register', href='#') Зарегистрируйтесь!
+    div(class='register row', style='display: none;')
+        div(class='welcome row') Зарегистрируйтесь
+        div(class='row')
+            div(class='small-2 medium-2 large-2 small-offset-2 medium-offset-2 large-offset-3') Логин
+            div(class='small-6 medium-5 large-4')
+                input(type='text', placeholder='Введите имя пользователя')
+        div(class='row')
+            div(class='small-2 medium-2 large-2 small-offset-2 medium-offset-2 large-offset-3') Пароль
+            div(class='small-6 medium-5 large-4')
+                input(type='password', placeholder='Придумайте пароль')
+        div(class='row')
+            div(class='small-2 medium-2 large-2 small-offset-2 medium-offset-2 large-offset-3') Повторите пароль
+            div(class='small-6 medium-5 large-4')
+                input(type='password', placeholder='Еще раз введите пароль')
+        div(class='row text-center')
+            a(href='#', class='button') Зарегистрироваться
+        div(class='row text-center')
+            span Уже есть аккаунт?
+            a(class='login', href='#') Войдите!
+
+
+block style
+    link(rel='stylesheet', href='/stylesheets/login.css')
+    link(href='http://fonts.googleapis.com/css?family=Neucha&subset=latin,cyrillic', rel='stylesheet', type='text/css')
+
+block script
+    script(src='/javascripts/controllers/login.js')

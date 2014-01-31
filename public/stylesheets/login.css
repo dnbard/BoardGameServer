@@ -1,0 +1,18 @@
+.welcome.row{
+    font-family: 'Neucha', cursive;
+    font-weight: bold;
+    font-size: 30pt;
+    margin: 99px auto 25px auto;
+    text-align: center;
+}
+
+a.register, a.login{
+    font-weight: bold;
+    font-size: 16pt;
+    font-family: 'Neucha', cursive;
+    margin:5px 0 0 5px;
+}
+
+.row > div[class*="large-"], .row > div[class*="medium-"], .row > div[class*="small-"]  {
+    display: inline-block;
+}
