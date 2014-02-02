@@ -16,3 +16,7 @@ a.register, a.login{
 .row > div[class*="large-"], .row > div[class*="medium-"], .row > div[class*="small-"]  {
     display: inline-block;
 }
+
+input[type=text].form-error, input[type=password].form-error{
+    box-shadow: inset 0 1px 2px rgba(255,0,0,1), 0 1px 2px rgba(255,0,0,1);
+}
