@@ -23,22 +23,6 @@ $(document).ready(function(){
         input.addClass('form-error');
     }
 
-    var toggleElementsState = function(state, elements){
-        if (!elements) return;
-
-        for(var i = 0; i < elements.length; i ++){
-            var element = elements[i];
-
-            if (state){
-                element.removeAttr('disabled');
-                element.removeClass('disabled');
-            } else {
-                element.attr('disabled', 'disabled');
-                element.addClass('disabled');
-            }
-        }
-    }
-
     btnRegister.click(function(){
         var inptLogin = $('.form-login');
         inptLogin.removeClass('form-error');
@@ -70,7 +54,7 @@ $(document).ready(function(){
         var imgLoading = $('img.loading');
         imgLoading.removeClass('hidden');
 
-        toggleElementsState(false, [inptLogin, inptPassword, inptPasscheck, btnRegister]);
+        Utils.toggleElementsState(false, [inptLogin, inptPassword, inptPasscheck, btnRegister]);
 
         var guid = Utils.guid();
         Utils.get('/api/security/getkey', {
@@ -86,11 +70,13 @@ $(document).ready(function(){
             Utils.post('/api/user/register', package, function(data){
                 //ok
                 imgLoading.addClass('hidden');
-                toggleElementsState(true, [inptLogin, inptPassword, inptPasscheck, btnRegister]);
+                Utils.toggleElementsState(true, [inptLogin, inptPassword, inptPasscheck, btnRegister]);
+                window.location = '/';
             }, function(data){
                 //not ok
                 imgLoading.addClass('hidden');
-                toggleElementsState(true, [inptLogin, inptPassword, inptPasscheck, btnRegister]);
+                Utils.toggleElementsState(true, [inptLogin, inptPassword, inptPasscheck, btnRegister]);
+                Utils.alert('Случилась ошибка при создании нового пользователя. Повторите процедуру позже.')
             });
         })
     })

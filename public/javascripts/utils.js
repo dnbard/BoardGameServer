@@ -112,5 +112,32 @@ Utils = {
 
     stringContains: function(where, what){
         return where.indexOf(what) != -1;
+    },
+
+    toggleElementState: function(state, element){
+        if (!element) return;
+        if (state){
+            element.removeAttr('disabled');
+            element.removeClass('disabled');
+        } else {
+            element.attr('disabled', 'disabled');
+            element.addClass('disabled');
+        }
+    },
+
+    toggleElementsState: function(state, elements){
+        if (!elements) return;
+
+        for(var i = 0; i < elements.length; i ++){
+            var element = elements[i];
+
+            if (state){
+                element.removeAttr('disabled');
+                element.removeClass('disabled');
+            } else {
+                element.attr('disabled', 'disabled');
+                element.addClass('disabled');
+            }
+        }
     }
 }

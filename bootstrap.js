@@ -12,6 +12,7 @@ var userAuth = function(req, res, next){
         if (user.length > 0){
             res.locals.user = user[0];
             res.locals.auth = true;
+            var name = user[0].login;
             next();
         } else authFailure();
     }, function(){
