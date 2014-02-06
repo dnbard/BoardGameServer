@@ -2,7 +2,8 @@ var express = require('express'),
     http = require('http'),
     path = require('path'),
     routing = require('./routing.js'),
-    bootstrap = require('./bootstrap.js');
+    bootstrap = require('./bootstrap.js'),
+    db = require('./database.js');
 
 var app = express();
 
@@ -31,4 +32,8 @@ routing.init(app);
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
+});
+
+db.connect(function(){
+    db.migration();
 });

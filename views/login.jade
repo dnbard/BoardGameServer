@@ -28,7 +28,9 @@ block content
             div(class='small-6 medium-5 large-4')
                 input(class='form-passcheck',type='password', placeholder='Еще раз введите пароль')
         div(class='row text-center')
-            a(href='#', class='btnRegister button') Зарегистрироваться
+            a(href='#', class='btnRegister button')
+                img(src='/images/ajax-loader.gif', class='loading hidden')
+                span Зарегистрироваться
         div(class='row text-center')
             span Уже есть аккаунт?
             a(class='login', href='#') Войдите!
@@ -40,3 +42,4 @@ block style
 
 block script
     script(src='/javascripts/controllers/login.js')
+    script(src='/javascripts/crypt/aes.js')

@@ -35,7 +35,9 @@ function connect(callback){
 }
 
 function migration(){
-    var migrationFiles = fs.readdirSync('./migrations');
+    var path = './migrations';
+    if (!fs.existsSync(path)) return;
+    var migrationFiles = fs.readdirSync(path);
 
     if (migrationFiles.length > 0){
         migrations.getAll(function(err, migrationList){

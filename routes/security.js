@@ -1,11 +1,14 @@
-var AES = require('../crypt/aes.js');
+var keySecurity = require('../models/keys-security.js');
 
 exports.getIdKey = function(req, res){
     var id = req.query.id;
+    if (!id) {
+        res.status(400).send('Bad Request');
+    }
+
+    var hash = keySecurity.addKey(id);
 
     res.send({
-        id: id,
-        encrypted: AES.enc(id, 'pass'),
-        decrypted: AES.dec(AES.enc(id, 'pass'), 'pass')
+        key: hash
     });
 };

@@ -23,6 +23,22 @@ $(document).ready(function(){
         input.addClass('form-error');
     }
 
+    var toggleElementsState = function(state, elements){
+        if (!elements) return;
+
+        for(var i = 0; i < elements.length; i ++){
+            var element = elements[i];
+
+            if (state){
+                element.removeAttr('disabled');
+                element.removeClass('disabled');
+            } else {
+                element.attr('disabled', 'disabled');
+                element.addClass('disabled');
+            }
+        }
+    }
+
     btnRegister.click(function(){
         var inptLogin = $('.form-login');
         inptLogin.removeClass('form-error');
@@ -50,5 +66,32 @@ $(document).ready(function(){
             invalidateInput(inptPasscheck);
             return;
         }
+
+        var imgLoading = $('img.loading');
+        imgLoading.removeClass('hidden');
+
+        toggleElementsState(false, [inptLogin, inptPassword, inptPasscheck, btnRegister]);
+
+        var guid = Utils.guid();
+        Utils.get('/api/security/getkey', {
+            id: guid
+        }, function(data){
+            var key = GibberishAES.dec(data.key, guid);
+            var package = {
+                login: GibberishAES.enc(login, key),
+                passw: GibberishAES.enc(password, key),
+                hashc: data.key
+            };
+
+            Utils.post('/api/user/register', package, function(data){
+                //ok
+                imgLoading.addClass('hidden');
+                toggleElementsState(true, [inptLogin, inptPassword, inptPasscheck, btnRegister]);
+            }, function(data){
+                //not ok
+                imgLoading.addClass('hidden');
+                toggleElementsState(true, [inptLogin, inptPassword, inptPasscheck, btnRegister]);
+            });
+        })
     })
 });
