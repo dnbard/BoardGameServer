@@ -2,9 +2,10 @@ doctype html
 html
     head
         title= title
-        link(rel='stylesheet', href='/stylesheets/style.css')
+
         link(rel='stylesheet', href='/stylesheets/foundation.min.css')
         link(rel='stylesheet', href='/stylesheets/normalize.css')
+        link(rel='stylesheet', href='/stylesheets/style.css')
         block style
 
         script(src='/javascripts/vendor/jquery.js', type='text/javascript')
@@ -13,5 +14,7 @@ html
         script(src='/javascripts/utils.js', type='text/javascript')
 
     body
-        block content
+        block header
+        div(class='content small-12 medium-11 large-11')
+            block content
         block script

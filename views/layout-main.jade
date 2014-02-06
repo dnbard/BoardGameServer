@@ -1,0 +1,15 @@
+extends layout
+
+block style
+    link(href='http://fonts.googleapis.com/css?family=Engagement',rel='stylesheet',type='text/css')
+
+block header
+    div(class='header')
+        div(class='header-wrapper')
+            div(class='caption') Node.JS Game Server
+            if (user != false)
+                div(class='inline name')
+                    img(src='/images/avatar-default.png')
+                    span= user.login
+            else
+                div(class='inline name') Войти

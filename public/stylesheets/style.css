@@ -1,12 +1,87 @@
 body {
-    padding: 50px;
     font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+    background: url('../images/bg.png');
 }
 
 a {
     color: #00B7FF;
 }
 
+div.inline{
+    display: inline-block;
+}
+
 .hidden{
     display: none;
+}
+
+a.button {
+    border-radius: 0;
+    border-bottom: 5px solid rgba(0,0,0,0.30);
+    box-shadow: 5px 0 0px rgba(200,200,200,0.6);
+    transition: 0.25s all;
+}
+
+a.button:hover {
+    box-shadow: 10px 0 0px rgba(100,200,100,0.6);
+}
+
+.header{
+    position: relative;
+    background: rgba(50,0,0,0.8);
+    padding: 10px;
+    border-bottom: 20px solid rgba(0,0,0,0.4);
+    color: white;
+    text-shadow: 0 0 10px white, 0 0 5px white;
+    box-shadow: 0 15px 0 rgba(0,0,0,0.5);
+    background-image: url('../images/pattern0.png');
+}
+
+.header .caption{
+    display: inline-block;
+    font-family: 'Engagement', cursive;
+    font-size: 25pt;
+    padding: 5px;
+    cursor: pointer;
+    transition: 0.25s all;
+    border-bottom: 5px solid rgba(255,0,0,0.001);
+}
+
+.header .caption:hover{
+    border-bottom: 5px solid rgba(255,0,0,0.4);
+}
+
+.header .name{
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    padding: 4px 10px;
+    background: rgba(0,0,0,0.5);
+    cursor: pointer;
+}
+
+.header .name > img{
+    margin-right: 5px;
+    transition: 0.25s all;
+}
+
+.header .name:hover{
+    box-shadow: 0 0 2px lightgoldenrodyellow;
+}
+
+.header-wrapper{
+    max-width: 990px;
+    position: relative;
+    margin: auto;
+}
+
+.content{
+    min-height: 450px;
+    max-width: 990px;
+    margin: auto;
+    background: rgba(255,255,255,0.95);
+    border-bottom: 10px dashed rgba(0,100,0,0.1);
+    border-right: 10px dashed rgba(0,100,0,0.1);
+    border-left: 10px solid rgba(0,100,0,0.1);
+    box-shadow: 0 5px rgba(0,0,0,0.25);
 }

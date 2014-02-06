@@ -1,3 +1,7 @@
+body{
+    padding: 100px 50px;
+}
+
 .welcome.row{
     font-family: 'Neucha', cursive;
     font-weight: bold;
@@ -23,4 +27,22 @@ input[type=text].form-error, input[type=password].form-error{
 
 img.loading{
     margin-right: 10px;
+}
+
+div.login{
+    display: block;
+    background: rgba(200,255,200,0.8);
+    border-radius: 0;
+    padding: 0 0 25px 0;
+    border-bottom: 10px solid rgba(0,0,0,0.30);
+    box-shadow: 10px 0 0px rgba(55,100,200,0.6);
+}
+
+div.register{
+    display: block;
+    background: rgba(200,255,255,0.8);
+    border-radius: 0;
+    padding: 0 0 25px 0;
+    border-bottom: 10px solid rgba(0,0,0,0.30);
+    box-shadow: 10px 0 0px rgba(255,100,100,0.6);
 }
