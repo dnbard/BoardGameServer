@@ -2,11 +2,9 @@ var mongoose = require('mongoose'),
     utils = require('../utils.js');
 
 var usersSchema = mongoose.Schema({
-    id: String,
     login: String,
     password: String,
-    token: String,
-    name: String
+    token: String
 });
 
 var Users = mongoose.model('Users', usersSchema);
@@ -14,7 +12,6 @@ var Users = mongoose.model('Users', usersSchema);
 var findByToken = function(token, success, failure){
     if (token) {
         Users.find({ token: token },
-            {name:1, token:1, _id:0, id:1},
             function(err, user){
                 if (err) {
                     failure();
@@ -53,6 +50,16 @@ var getAll = function(success, failure){
             success(users);
         }
     });
+}
+
+exports.add = function(userInfo){
+    var user = new Users();
+    user.login = userInfo.login;
+    user.password = userInfo.password;
+    user.token = utils.guid();
+
+    user.save();
+    return user.token;
 }
 
 exports.Users = Users;
