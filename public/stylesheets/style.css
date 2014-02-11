@@ -80,8 +80,25 @@ a.button:hover {
     max-width: 990px;
     margin: auto;
     background: rgba(255,255,255,0.95);
-    border-bottom: 10px dashed rgba(0,100,0,0.1);
     border-right: 10px dashed rgba(0,100,0,0.1);
-    border-left: 10px solid rgba(0,100,0,0.1);
     box-shadow: 0 5px rgba(0,0,0,0.25);
 }
+
+.f-dropdown{
+    left: inherit;
+    right: 5px;
+    width: 180px;
+    display: none;
+    box-shadow: 0 0 5px black;
+    border-right: dashed 5px paleturquoise;
+    border-bottom: dashed 3px paleturquoise;
+}
+
+.f-dropdown:after{
+    left: 39px;
+}
+
+.f-dropdown:before{
+    left: 40px;
+}
+

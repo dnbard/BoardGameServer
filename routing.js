@@ -6,9 +6,11 @@ var routes = require('./routes'),
 
 
 var init = function(app){
-    app.get('/', auth.restrict, routes.index);
+    app.get('/', routes.index);
 
     app.get('/login', login.index);
+
+    app.get('/api/user/logout', login.logout);
     app.post('/api/user/register', user.register);
 
     app.get('/api/security/getkey', security.getIdKey);
